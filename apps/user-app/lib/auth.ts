@@ -23,7 +23,7 @@ export const authOptions={
                     const passwordValidation=await bcrypt.compare(credentials.password,existingUser.password)
                     if(passwordValidation){
                         return {
-                            id:existingUser.id.totring(),
+                            id:existingUser.id.toString(),
                             name:existingUser.name,
                             email:existingUser.number
                         }
@@ -40,7 +40,7 @@ export const authOptions={
                     });
 
                     return {
-                        id:user.id.totring(),
+                        id:user.id.toString(),
                         name:user.name,
                         email:user.email
                     }
