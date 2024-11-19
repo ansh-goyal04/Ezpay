@@ -1,3 +1,5 @@
+"use client";
+
 export function Code({
   children,
   className,
