@@ -8,14 +8,14 @@ enum OnRampStatus {
     Processing
   }
 
-export const OnRampTransactions = ({
+ const OnRampTransactions = ({
     transactions
 }: {
     transactions: {
         time: Date,
         amount: number,
         // TODO: Can the type of `status` be more specific?
-        status: OnRampStatus,
+        status: String,
         provider: string
     }[]
 }) => {
@@ -45,3 +45,5 @@ export const OnRampTransactions = ({
         </div>
     </Card2>
 }
+
+export {OnRampStatus,OnRampTransactions};

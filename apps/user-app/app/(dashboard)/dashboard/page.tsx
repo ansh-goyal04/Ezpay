@@ -1,10 +1,15 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../lib/auth";
 import prisma from "@repo/db/client";
-import { OnRampTransactions } from "../../../components/OnRampTransactions";
+import { OnRampTransactions ,OnRampStatus} from "../../../components/OnRampTransactions";
 import { AddMoney } from "../../../components/AddMoneyCard";
 import { BalanceCard } from "../../../components/BalanceCard";
 
+// enum OnRampStatus{
+//     Success,
+//     Failure,
+//     Processing
+// }
 async function getBalance(){
     const session=await getServerSession(authOptions);
     const balance=await prisma.balance.findFirst({
@@ -26,8 +31,8 @@ async function getOnRampTransactions(){
         }
     });
 
-    return
-        txns.map(t =>({
+    return txns.map(t =>(
+        {
             time:t.startTime,
             amount:t.amount,
             status:t.status,
